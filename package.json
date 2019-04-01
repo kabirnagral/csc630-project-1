@@ -9,6 +9,7 @@
   "author": "Jeffrey Shen <jeffreyshencc@gmail.com> (http://jeffreyshen.com)",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.16.4",
     "pg": "^7.9.0"
   }
 }
