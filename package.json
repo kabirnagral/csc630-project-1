@@ -1,0 +1,14 @@
+{
+  "name": "project-1",
+  "version": "1.0.0",
+  "description": "CSC630 project 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeffrey Shen <jeffreyshencc@gmail.com> (http://jeffreyshen.com)",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^7.9.0"
+  }
+}
