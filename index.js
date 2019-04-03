@@ -128,7 +128,7 @@ app.get("/users", function(req, res){
 
 // Home Page
 app.get("/", function(req, res){
-  res.send("Everything is good");
+  res.send("Welcome! <a href = '/users'>View Users</a> or <a href = '/addresses'>View Addresses</a>");
 });
 
 // ** Start Server **
