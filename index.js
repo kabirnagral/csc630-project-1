@@ -13,8 +13,13 @@ var geocoder = NodeGeocoder({
   apiKey: process.env.GOOGLE_API,
 });
 
-var pool = new pg.Pool(),
+var pool = new pg.Pool({
+      connectionString: process.env.DATABASE_URL,
+      ssl: true,
+    }),
     app = express();
+
+pool.connect();
 
 app.use(bodyParser());
 
