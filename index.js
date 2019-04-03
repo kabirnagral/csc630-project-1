@@ -72,6 +72,13 @@ app.get("/:username/poi", function(req, res){
   });
 });
 
+// Returns a JSON list of all addresses
+app.get("/addresses", function(req, res){
+  pool.query("SELECT * FROM Addresses", function(err, result){
+    res.json(result.rows);
+  });
+});
+
 /*
   USERS
 */
@@ -107,8 +114,15 @@ app.post("/user/delete", function(req, res){
 });
 
 // Gets a User
-app.get("/:username", function(req, res){
+app.get("/user/:username", function(req, res){
   pool.query(`SELECT * FROM Users WHERE Users.UserName='${req.params.username}'`, function(err, result){
+    res.json(result.rows);
+  });
+});
+
+// Gets all Users
+app.get("/user/:username", function(req, res){
+  pool.query("SELECT * FROM Users", function(err, result){
     res.json(result.rows);
   });
 });

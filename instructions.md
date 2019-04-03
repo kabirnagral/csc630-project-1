@@ -40,4 +40,6 @@ This app is a simple REST API for creating users and linking them with addresses
 
 ### Reading Data
 * GET `/<username>/poi`: Returns a JSON array of locations created by a user
-* GET `/<username>`: Returns a JSON object of the user with username <username>.
+* GET `/user/<username>`: Returns a JSON object of the user with username <username>.
+* GET `/users`: Returns a JSON of all users
+* GET `/addresses`: Returns a JSON of all addresses
