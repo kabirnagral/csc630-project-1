@@ -101,7 +101,7 @@ app.post("/user/delete", function(req, res){
   pool.query(
     `DELETE FROM Users
     WHERE UserID = '${req.body.userID}';`, function(err, res){
-    console.log("Deleted USER"); 
+    console.log("Deleted USER");
     res.send(200);
   });
 });
@@ -114,7 +114,7 @@ app.get("/user/:username", function(req, res){
 });
 
 // Gets all Users
-app.get("/user/:username", function(req, res){
+app.get("/users", function(req, res){
   pool.query("SELECT * FROM Users", function(err, result){
     res.json(result.rows); // Return result of SQL query
   });
