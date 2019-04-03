@@ -52,6 +52,24 @@ app.post("/address/create", function(req, res){
   });
 });
 
+//Update address
+app.post("/address/update", function(req, res){
+
+});
+
+//Delete address
+app.post("/address/delete", function(req, res){
+
+});
+
+// Returns a JSON list of all the user’s locations.
+app.get("/:username/poi", function(req, res){
+  pool.query(`SELECT AddressTitle,Address,Lat,Long FROM Users JOIN Addresses ON Users.UserID=Addresses.UserID WHERE Users.UserName='${req.params.username}'`, function(err, result){
+    console.log(err, result);
+    res.json(result.rows);
+  });
+});
+
 /*
   USERS
 */
