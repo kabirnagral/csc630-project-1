@@ -10,7 +10,7 @@ This app is a simple REST API for creating users and linking them with addresses
       * `addressTitle` (String): title of the address (i.e. "Grandma's House")
       * `address` (String): address
       * `userID` (Int): ID of the user who created the address
-* POST `/address/updates`: Updates a row in the `Addresses` table.
+* POST `/address/update`: Updates a row in the `Addresses` table.
   * Body (params required in request):
       * `addressTitle` (String): title of the address (i.e. "Grandma's House")
       * `address` (String): address

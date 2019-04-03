@@ -52,7 +52,7 @@ app.post("/address/update", function(req, res){
   geocoder.geocode(req.body.address, function(err, result) {
     client.query(
       `UPDATE Addresses
-      SET AddressTitle = '${req.body.addressTitle}', Address = '${req.body.address}', Lat = ${result[0].latitude}, Long = ${result[0].longitude}
+      SET AddressTitle = '${req.body.addressTitle}', Address = '${req.body.address}', Lat = ${result[0].latitude}, Long = ${result[0].longitude}, UserID = ${req.body.userID}
       WHERE AddressID = '${req.body.addressID}';`, function(err, result){
       console.log("Updated Address");
       res.sendStatus(200);
