@@ -54,12 +54,20 @@ app.post("/address/create", function(req, res){
 
 //Update address
 app.post("/address/update", function(req, res){
-
+  pool.query(
+    `UPDATE Addresses
+    SET AddressTitle = '${req.body.displayName}', Address = '${req.body.userName}', Lat = ${req.body.lat}, Long = ${req.body.long}
+    WHERE AddressID = '${req.body.addressID}';`, function(err, res){
+    console.log("Updated Address");
+    console.log(err, res);
+  });
 });
 
 //Delete address
 app.post("/address/delete", function(req, res){
-
+  pool.query(`DELETE FROM Addresses WHERE AddressID=${req.body.addressID}`, function(err, result){
+    console.log(err, result);
+  });
 });
 
 // Returns a JSON list of all the user’s locations.
@@ -101,6 +109,14 @@ app.post("/user/delete", function(req, res){
     WHERE UserID = '${req.body.userID}';`, function(err, res){
     console.log("Deleted USER");
     console.log(err, res);
+  });
+});
+
+// Gets a User
+app.get("/:username", function(req, res){
+  pool.query(`SELECT * FROM Users WHERE Users.UserName='${req.params.username}'`, function(err, result){
+    console.log(err, result);
+    res.json(result.rows);
   });
 });
 
