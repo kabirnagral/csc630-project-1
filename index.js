@@ -72,17 +72,14 @@ app.post("/address/delete", function(req, res){
 
 // Returns a JSON list of all the user’s locations.
 app.get("/:username/poi", function(req, res){
-  client.query(`SELECT AddressTitle,Address,Lat,Long FROM Users JOIN Addresses ON Users.UserID=Addresses.UserID WHERE Users.UserName='${req.params.username}'`, function(err, result){
+  client.query(`SELECT AddressTitle,Address,Address.Lat,Address.Long FROM Users JOIN Addresses ON Users.UserID=Addresses.UserID WHERE Users.UserName='${req.params.username}'`, function(err, result){
     res.json(result.rows);
   });
 });
 
 // Returns a JSON list of all addresses
 app.get("/addresses", function(req, res){
-  console.log("GOT TO ADDRESSES");
-  console.log(res);
   client.query("SELECT * FROM Addresses", function(err, result){
-    console.log(result);
     res.json(result.rows);
   });
 });
