@@ -79,8 +79,10 @@ app.get("/:username/poi", function(req, res){
 
 // Returns a JSON list of all addresses
 app.get("/addresses", function(req, res){
+  console.log("GOT TO ADDRESSES");
   console.log(res);
   client.query("SELECT * FROM Addresses", function(err, result){
+    console.log(result);
     res.json(result.rows);
   });
 });
