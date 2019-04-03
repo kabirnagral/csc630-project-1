@@ -52,7 +52,7 @@ app.post("/address/update", function(req, res){
     client.query(
       `UPDATE Addresses
       SET AddressTitle = '${req.body.addressTitle}', Address = '${req.body.address}', Lat = ${result[0].latitude}, Long = ${result[0].longitude}, UserID = ${req.body.userID}
-      WHERE AddressID = '${req.body.addressID}';`, function(err, result){
+      WHERE AddressID = ${req.body.addressID};`, function(err, result){
       console.log("Updated Address");
       res.sendStatus(200);
     });
@@ -96,7 +96,7 @@ app.post("/user/update", function(req, res){
   client.query(
     `UPDATE Users
     SET DisplayName = '${req.body.displayName}', UserName = '${req.body.userName}', Lat = ${req.body.lat}, Long = ${req.body.long}
-    WHERE UserID = '${req.body.userID}';`, function(err, result){
+    WHERE UserID = ${req.body.userID};`, function(err, result){
     console.log("Updated USER");
     res.sendStatus(200);
   });
