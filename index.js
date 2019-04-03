@@ -13,6 +13,8 @@ var geocoder = NodeGeocoder({
   apiKey: process.env.GOOGLE_API,
 });
 
+console.log("were sorta there");
+
 var client = new pg.Client({
       connectionString: process.env.DATABASE_URL,
       ssl: true,
@@ -22,6 +24,8 @@ var client = new pg.Client({
 client.connect();
 
 app.use(bodyParser());
+
+console.log("we good");
 
 // ** Create Tables **
 
@@ -77,6 +81,7 @@ app.get("/:username/poi", function(req, res){
 
 // Returns a JSON list of all addresses
 app.get("/addresses", function(req, res){
+  console.log(res);
   client.query("SELECT * FROM Addresses", function(err, result){
     res.json(result.rows);
   });
